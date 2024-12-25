@@ -36,16 +36,33 @@ class Pot extends StatelessWidget {
           )
         ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0), // Add padding inside the container
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space between text and image
-          crossAxisAlignment: CrossAxisAlignment.center, // Align vertically to center
-          children: [
-            // Text Column
-            Column(
+      child: Stack(
+        children: [
+          // Background Image
+          if (imageAssetPath.isNotEmpty)
+            Positioned.fill(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(40), // Rounded corners for the image
+                child: Image.asset(
+                  imageAssetPath,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          // Colored semi-transparent overlay container
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color(0xFF001426).withOpacity(0.7), // Overlay with low opacity
+                borderRadius: BorderRadius.circular(40),
+              ),
+            ),
+          ),
+          // Text Content
+          Padding(
+            padding: const EdgeInsets.all(20.0), // Add padding inside the container
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
-              mainAxisSize: MainAxisSize.min,
               children: [
                 // Label
                 Text(
@@ -68,19 +85,8 @@ class Pot extends StatelessWidget {
                   ),
               ],
             ),
-            // Image (Optional, shown only if imageAssetPath is not empty)
-            if (imageAssetPath.isNotEmpty)
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20), // Rounded corners for the image
-                child: Image.asset(
-                  imageAssetPath,
-                  height: 100,
-                  width: 100,
-                  fit: BoxFit.cover,
-                ),
-              ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

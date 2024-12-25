@@ -21,30 +21,31 @@ class PotDetails extends StatelessWidget {
         ),
       ),
       body: Container(
-        color: const Color(0xFf00273F),
-        // Set the background color for the whole body
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.only(right: 150.0), // Set the right padding (adjust as needed)
-              child: const Text(
-                'Controllers',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255), // Dark color for text
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold, // Bold text
+        color: const Color(0xFf00273F), // Set the background color for the whole body
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.only(right: 150.0), // Set the right padding (adjust as needed)
+                child: const Text(
+                  'Controllers',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 255, 255, 255), // Dark color for text
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold, // Bold text
+                  ),
                 ),
               ),
-            ),
-            const Row(
-              children: [
-                Lamp(),
-                Lamp(),
-              ],
-            ),
-            const Temp(),
-            const Watering(), // Correct usage of Temp widget
-          ],
+              const Row(
+                children: [
+                  Lamp(),
+                  Lamp(),
+                ],
+              ),
+              const Temp(),
+              const Watering(), // Correct usage of Temp widget
+            ],
+          ),
         ),
       ),
     );
