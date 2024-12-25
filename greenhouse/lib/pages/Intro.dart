@@ -4,21 +4,40 @@ import 'package:greenhouse/pages/dashbord.dart'; // Only import once
 class Intro extends StatelessWidget {
   const Intro({super.key});
 
+  // Method to simulate loading and then navigate to Dashboard
+  Future<void> navigateWithLoading(BuildContext context) async {
+    // Show loading screen
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoadingScreen()),
+    );
+
+    // Simulate loading
+    await Future.delayed(Duration(seconds: 3)); // Simulate a loading delay
+
+    // Once loading is done, navigate to the Dashboard
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const Dashboard()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF011F31),
-      body: Stack( // Use Stack instead of Column
+      body: Stack( // Use Stack to layer widgets
         children: [
           // Background image
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/Ghouse.png"), 
-                fit: BoxFit.cover, // Ensure the image covers the entire screen
+                image: AssetImage("assets/green.jpg"), // Ensure path is correct
+                fit: BoxFit.cover, // Make image cover the entire screen
               ),
             ),
-            height: double.infinity, // Makes the image fill the screen
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.85), // Black color with 50% opacity
           ),
 
           // Background text (behind the car)
@@ -26,12 +45,11 @@ class Intro extends StatelessWidget {
             top: 300, // Adjust the top position of the text
             left: 40, // Adjust the left position of the text
             child: Text(
-              "SMART \nGREENHOUSE", // Your text
+              "SMART \nGREEN HOUSE", // Your text
               style: TextStyle(
                 fontSize: 50, // Adjust the font size
                 color: Color(0xFF1EFF00), // Light text color
                 fontWeight: FontWeight.bold,
-               
               ),
             ),
           ),
@@ -50,7 +68,7 @@ class Intro extends StatelessWidget {
               ),
             ),
           ),
-         
+
           // Positioned "Get Started" button
           Positioned(
             bottom: 150, // Position the button near the bottom of the screen
@@ -58,14 +76,12 @@ class Intro extends StatelessWidget {
             right: 40, // Adjust horizontal positioning for better centering
             child: ElevatedButton(
               onPressed: () {
-                // Navigate to the dashboard page when button is pressed
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Dashboard()), // Navigate to Dashbord
-                );
+                navigateWithLoading(context); // Navigate to the dashboard page when button is pressed
               },
-              child: const Text('Get Started'
-                  , style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+              child: const Text(
+                'Get Started',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF1EFF00), // Button background color
                 foregroundColor: const Color.fromARGB(255, 10, 10, 10), // Button text color
@@ -78,6 +94,18 @@ class Intro extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// Loading Screen to display while transitioning
+class LoadingScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(), // Show a loading spinner
       ),
     );
   }

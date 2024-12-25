@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Temp extends StatefulWidget {
-  const Temp({super.key});
+class Watering extends StatefulWidget {
+  const Watering({super.key});
 
   @override
   _TempState createState() => _TempState();
 }
 
-class _TempState extends State<Temp> {
+class _TempState extends State<Watering> {
   double temperature = 22.0; // Initial temperature in Celsius
   int fanSpeed = 1; // Fan speed (1 to 3)
 
@@ -43,7 +43,7 @@ class _TempState extends State<Temp> {
   Widget build(BuildContext context) {
     return SingleChildScrollView( // Make the entire container scrollable
       child: Container(
-        margin: const EdgeInsets.all(20),
+        margin: const EdgeInsets.all(5),
         height: 250,
         width: 400, // Allow width to expand to full screen width
         padding: const EdgeInsets.all(16),
