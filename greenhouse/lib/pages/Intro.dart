@@ -29,7 +29,7 @@ class Intro extends StatelessWidget {
               "SMART \nGREENHOUSE", // Your text
               style: TextStyle(
                 fontSize: 50, // Adjust the font size
-                color: Color(0xFF00FF8C), // Light text color
+                color: Color(0xFF1EFF00), // Light text color
                 fontWeight: FontWeight.bold,
                
               ),
@@ -67,7 +67,7 @@ class Intro extends StatelessWidget {
               child: const Text('Get Started'
                   , style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF00FF8C), // Button background color
+                backgroundColor: const Color(0xFF1EFF00), // Button background color
                 foregroundColor: const Color.fromARGB(255, 10, 10, 10), // Button text color
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15), // Padding
                 shape: RoundedRectangleBorder(
