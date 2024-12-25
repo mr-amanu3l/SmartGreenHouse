@@ -7,7 +7,7 @@ class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xFF011F31),
       body: Stack( // Use Stack instead of Column
         children: [
           // Background image
@@ -29,31 +29,9 @@ class Intro extends StatelessWidget {
               "SMART \nGREENHOUSE", // Your text
               style: TextStyle(
                 fontSize: 50, // Adjust the font size
-                color: Color(0xFF1EFF00), // Light text color
+                color: Color(0xFF00FF8C), // Light text color
                 fontWeight: FontWeight.bold,
-                shadows: [
-                  // Adding multiple shadows to create a stroke effect
-                  Shadow(
-                    color: Color.fromARGB(255, 255, 255, 255), // White color for stroke
-                    offset: Offset(2, 2), // Shadow offset for top-left direction
-                    blurRadius: 5, // Reduce blur for a more defined stroke
-                  ),
-                  Shadow(
-                    color: Color.fromARGB(255, 255, 255, 255), // White color for stroke
-                    offset: Offset(-2, 2), // Shadow offset for bottom-right direction
-                    blurRadius: 5, // Reduce blur for a more defined stroke
-                  ),
-                  Shadow(
-                    color: Color.fromARGB(255, 0, 0, 0), // White color for stroke
-                    offset: Offset(2, -2), // Shadow offset for bottom-left direction
-                    blurRadius: 5, // Reduce blur for a more defined stroke
-                  ),
-                  Shadow(
-                    color: Color.fromARGB(255, 255, 255, 255), // White color for stroke
-                    offset: Offset(-2, -2), // Shadow offset for top-right direction
-                    blurRadius: 5, // Reduce blur for a more defined stroke
-                  ),
-                ],
+               
               ),
             ),
           ),
@@ -67,7 +45,7 @@ class Intro extends StatelessWidget {
               'This project is all about Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
               style: TextStyle(
                 fontSize: 12,
-                color: Color.fromARGB(255, 17, 17, 17),
+                color: Color.fromARGB(255, 255, 255, 255),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -83,13 +61,13 @@ class Intro extends StatelessWidget {
                 // Navigate to the dashboard page when button is pressed
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Dashbord()), // Navigate to Dashbord
+                  MaterialPageRoute(builder: (context) => const Dashboard()), // Navigate to Dashbord
                 );
               },
               child: const Text('Get Started'
                   , style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1EFF00), // Button background color
+                backgroundColor: const Color(0xFF00FF8C), // Button background color
                 foregroundColor: const Color.fromARGB(255, 10, 10, 10), // Button text color
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15), // Padding
                 shape: RoundedRectangleBorder(
