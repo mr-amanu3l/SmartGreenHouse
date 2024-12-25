@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:greenhouse/pages/potdetails.dart';
 import 'package:greenhouse/widgets/pot.dart';
-import 'package:greenhouse/pages/potdetails.dart'; // Import the new page for navigation
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -61,11 +61,13 @@ class _DashboardState extends State<Dashboard> {
                 style: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 24,
-                  fontWeight: FontWeight.bold, // Corrected fontWeight casing
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Image(image: image)//i You can add more widgets for the Manuals section here
-              // Example: Add an image or some text below
+              SizedBox(height: 20),
+              Image(
+                image: AssetImage('assets/green.jpg'), // Provide the correct image path
+              ),
               SizedBox(height: 50),
               Text(
                 'Here you can view various manuals for plant care, watering schedules, and more!',
@@ -78,7 +80,31 @@ class _DashboardState extends State<Dashboard> {
           ),
         );
       case 2:
-        return const Center(child: Text('Settings Tab Content'));
+        return const Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Text(
+                'Settings',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 20),
+            
+              SizedBox(height: 50),
+              Text(
+                'Bluetooth',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+        );
       case 3:
         return const Center(child: Text('About Us Tab Content'));
       default:
@@ -108,7 +134,7 @@ class _DashboardState extends State<Dashboard> {
 
       // Display the content based on the selected tab
 
-      bottomNavigationBar: Container(
+bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           color: Color.fromARGB(255, 0, 117, 212), // Background color for the nav bar
         ),
