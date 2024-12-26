@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenhouse/pages/watering.dart';
 import 'package:greenhouse/widgets/lamp.dart';
+import 'package:greenhouse/widgets/plantinfo.dart';
 import 'package:greenhouse/widgets/temp.dart';
 
 class PotDetails extends StatelessWidget {
@@ -38,7 +39,7 @@ class PotDetails extends StatelessWidget {
               ),
               const Row(
                 children: [
-                  Lamp(),
+                  plantinfo(),
                   Lamp(),
                 ],
               ),

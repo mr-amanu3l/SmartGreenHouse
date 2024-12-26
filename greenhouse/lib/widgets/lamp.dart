@@ -8,7 +8,7 @@ class Lamp extends StatefulWidget {
 }
 
 class _LampState extends State<Lamp> {
-  double speed = 50.0; // Initial speed value
+  double brightness = 50.0; // Initial speed value
 
   @override
   Widget build(BuildContext context) {
@@ -31,20 +31,20 @@ class _LampState extends State<Lamp> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Adjust Fan Speed', style: TextStyle(color: Colors.white)),
+            const Text('Adjust brightness', style: TextStyle(color: Colors.white)),
             Slider(
-              value: speed,
+              value: brightness,
               min: 0.0,
               max: 100.0,
               onChanged: (value) {
                 setState(() {
-                  speed = value;
+                  brightness = value;
                 });
                 // Send speed value to backend
                 // Example: sendSpeedCommand(speed);
               },
             ),
-            Text('Speed: ${speed.toStringAsFixed(0)}%', style: const TextStyle(color: Colors.white)),
+            Text('brightness: ${brightness.toStringAsFixed(0)}%', style: const TextStyle(color: Colors.white)),
           ],
         ),
       ),

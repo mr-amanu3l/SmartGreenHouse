@@ -47,7 +47,7 @@ class Intro extends StatelessWidget {
             child: Text(
               "SMART \nGREEN HOUSE", // Your text
               style: TextStyle(
-                fontSize: 50, // Adjust the font size
+                fontSize: 45, // Adjust the font size
                 color: Color(0xFF1EFF00), // Light text color
                 fontWeight: FontWeight.bold,
               ),
