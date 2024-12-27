@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Lamp extends StatefulWidget {
-  const Lamp({super.key});
+  final Function(double value) onBrightnessChanged;
+  
+  const Lamp({super.key, required this.onBrightnessChanged});
 
   @override
   _LampState createState() => _LampState();
 }
 
 class _LampState extends State<Lamp> {
-  double brightness = 50.0; // Initial speed value
+  double brightness = 50.0; // Initial brightness value
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +42,10 @@ class _LampState extends State<Lamp> {
                 setState(() {
                   brightness = value;
                 });
-                // Send speed value to backend
-                // Example: sendSpeedCommand(speed);
+                widget.onBrightnessChanged(value);
               },
             ),
-            Text('brightness: ${brightness.toStringAsFixed(0)}%', style: const TextStyle(color: Colors.white)),
+            Text('Brightness: ${brightness.toStringAsFixed(0)}%', style: const TextStyle(color: Colors.white)),
           ],
         ),
       ),

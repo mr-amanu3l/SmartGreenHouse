@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Temp extends StatefulWidget {
-  const Temp({super.key});
+  const Temp({super.key, required double temperature, required Null Function(dynamic value) onFanSpeedChanged});
 
   @override
   _TempState createState() => _TempState();
